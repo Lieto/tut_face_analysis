@@ -1,0 +1,23 @@
+{
+  "debug": 1,
+  "logging": 1,
+  "camera_id": 9,
+  "camera_resolution": [640, 310],
+  "camera_flip_horizontal": 1,
+  "window_caption": "TUT Age Estimator",
+  "window_displaysize": [310, 640],
+  "window_freetype_fontpath": "Verdana.tff",
+  "server_num_frames": 8,
+  "recognition_multitask_folder": "recognizers/multitask/MOBILENET_2019-04-09-08-43-46",
+  "recognition_celeb_dataset": "CelebA_aligned_5points",
+  "recognition_visualization_path": "recognizers/celebrities/data/CelebA/CelebA_aligned_5points",
+  "recognition_mindetections": 2,
+  "recognition_aligner": "recognizers/alignment/model-056-0.716316-0.967865.h5",
+  "recognition_aligner_targets": "recognizers/alignment/targets_symm.txt",
+  "celebmodels": {"0": "recognizers/celebrities/network/seresnet18_STRUCT_2019-04-03-02-56-41", "0_desc": "Default (squeeze-excite Resnet18), aligned with 5 points method"},
+  "expressions": {"0":  "No smile", "1":  "Smile"},
+  "detection_input_width": 240,
+  "detection_input_height": 180,
+  "detection_inference_graph": "detection/240x180_depth075_ssd_mobilenetv1/frozen_inference_graph.pb",
+  "detection_text_graph": "detection/240x180_depth075_ssd_mobilenetv1/graph.pbtxt"
+}
