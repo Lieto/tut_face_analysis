@@ -20,8 +20,8 @@ class GrabberThread(threading.Thread):
 
         self.flip_hor = config["camera_flip_horizontal"]
 
-        self.video = cv2.VideoCapture("test_4.mp4")
-        #self.video = cv2.VideoCapture(cam_id)
+        #self.video = cv2.VideoCapture("test_4.mp4")
+        self.video = cv2.VideoCapture(cam_id)
         self.parent = parent
 
         self.logger.info("Grabber Thread initialized...")

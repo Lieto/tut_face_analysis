@@ -19,10 +19,12 @@ class ControllerThread(threading.Thread):
         #threading.Thread.__init__(self)
 
         self.logger = logger
+        self.config = config
         self.terminated = False
         self.caption = config["window_caption"]
         self.debug = config["debug"]
         self.initialize_fonts(config)
+        self.save_images = self.config["save_images"]
 
         self.min_detections = int(config["recognition_mindetections"])
         self.display_size = config["window_displaysize"]
@@ -45,7 +47,8 @@ class ControllerThread(threading.Thread):
         self.recognition_thread.start()
 
         unused_width = self.resolution[0] - self.display_size[0]
-        cv2.moveWindow(self.caption, unused_width // 2, 0)
+        #cv2.moveWindow(self.caption, unused_width // 2, 0)
+        self.frame_counter = 0
 
         self.command_interface()
 
@@ -113,6 +116,13 @@ class ControllerThread(threading.Thread):
             self.draw_face(face, frame)
 
         frame = cv2.resize(frame, (self.display_size[0], self.display_size[1]))
+
+        if self.save_images == 1:
+            filename = str(self.frame_counter).zfill(4) + ".png"
+            cv2.imwrite(filename, frame)
+            
+        self.frame_counter += 1
+
         cv2.imshow(self.caption, frame)
         key = cv2.waitKey(10)
 

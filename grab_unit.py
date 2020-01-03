@@ -42,9 +42,6 @@ class GrabUnit:
 
         return self.processes
 
-    def get_timestamp(self):
-
-        return self.timestamp
 
     def get_age(self):
 
